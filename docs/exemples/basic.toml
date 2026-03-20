@@ -1,0 +1,35 @@
+# ================================
+# CineToml — Exemple basique
+# Le minimum pour générer une vidéo
+# ================================
+
+[meta]
+title      = "Ma première vidéo CineToml"
+langue     = "fr"
+resolution = "9x16"
+
+[personnages.moi]
+couleur = "#0084FF"
+cote    = "right"
+
+[personnages.ami]
+couleur = "#3C3C3E"
+cote    = "left"
+
+[[scenes]]
+type  = "sms"
+messages = [
+  {perso = "moi", texte = "Salut, t'es là ?"},
+  {perso = "ami", texte = "Oui, quoi ?"},
+  {perso = "moi", texte = "J'ai quelque chose à te dire..."},
+  {perso = "ami", texte = "Vas-y"},
+  {perso = "moi", texte = "Je viens de gagner à la loterie 🎰"},
+  {perso = "ami", texte = "QUOI ???"},
+  {perso = "moi", texte = "C'était un ticket à 2€ 😅"},
+  {perso = "ami", texte = "..."},
+]
+
+[[scenes]]
+type  = "outro"
+texte = "Suivez pour plus 😂"
+duree = 3.0

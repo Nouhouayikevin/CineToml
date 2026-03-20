@@ -1,0 +1,110 @@
+# ================================
+# CineToml — Fake SMS complet
+# Avec bruitages, réactions, effets
+# ================================
+
+[meta]
+title      = "J'ai accidentellement envoyé mon CV au mauvais employeur"
+langue     = "fr"
+resolution = "9x16"
+fps        = 30
+watermark  = "@moncompte"
+hook       = "J'ai ruiné ma carrière en 3 messages"
+
+[interface]
+style    = "imessage"
+heure    = "09:15"
+batterie = 34
+theme    = "sombre"
+
+[audio]
+musique  = "./assets/sons/background.mp3"
+volume   = 0.2
+fade_in  = 1.0
+fade_out = 2.0
+
+[bruitages]
+choc     = "./assets/sons/vine_boom.mp3"
+fail     = "./assets/sons/faaaah.mp3"
+win      = "./assets/sons/tada.mp3"
+malaise  = "./assets/sons/oh_no.mp3"
+
+[personnages.moi]
+couleur = "#0084FF"
+cote    = "right"
+voix    = "gtts"
+
+[personnages.boss]
+nom     = "PATRON"
+couleur = "#3C3C3E"
+cote    = "left"
+voix    = "gtts"
+
+# ── Titre ────────────────────────────────
+[[scenes]]
+type      = "titre"
+texte     = "J'ai envoyé mon CV au mauvais patron... 😰"
+duree     = 3.5
+animation = "fade_in"
+
+# ── Conversation ─────────────────────────
+[[scenes]]
+type     = "sms"
+vitesse  = 85
+messages = [
+  {perso = "moi",   texte = "Bonjour M. Dupont, veuillez trouver ci-joint mon CV"},
+  {perso = "moi",   texte = "Je candidate pour le poste de développeur"},
+  {perso = "boss",  texte = "Bonjour"},
+  {perso = "boss",  texte = "Je pense que ce message ne m'était pas destiné"},
+  {perso = "moi",   texte = "Pardon ?"},
+  {perso = "boss",  texte = "Je suis votre PATRON ACTUEL"},
+]
+
+# ── Réaction ─────────────────────────────
+[[scenes]]
+type     = "reaction"
+media    = "./assets/images/shocked.jpg"
+duree    = 2.5
+bruitage = "$fail"
+effet    = "shake"
+
+# ── Suite ────────────────────────────────
+[[scenes]]
+type     = "sms"
+vitesse  = 75
+messages = [
+  {perso = "moi",  texte = "Oh non...", bruitage = "$malaise"},
+  {perso = "boss", texte = "Alors comme ça vous cherchez un autre travail ?"},
+  {perso = "moi",  texte = "C'est pour... un ami"},
+  {perso = "boss", texte = "..."},
+  {perso = "boss", texte = "Venez me voir lundi matin", effet = "shake"},
+]
+
+# ── Réaction ─────────────────────────────
+[[scenes]]
+type          = "reaction"
+media         = "./assets/images/malaise.jpg"
+duree         = 2.0
+bruitage      = "$malaise"
+effet         = "zoom_in"
+texte_overlay = "😭😭😭"
+
+# ── Twist ────────────────────────────────
+[[scenes]]
+type     = "sms"
+vitesse  = 90
+messages = [
+  {perso = "boss", texte = "Vous avez de la chance"},
+  {perso = "moi",  texte = "..."},
+  {perso = "boss", texte = "Je cherchais justement quelqu'un pour vous remplacer"},
+  {perso = "boss", texte = "Vous êtes promu chef de projet 😄", bruitage = "$win"},
+  {perso = "moi",  texte = "🫠"},
+]
+
+# ── Outro ────────────────────────────────
+[[scenes]]
+type      = "outro"
+texte     = "Suivez pour plus de catastrophes 😂"
+duree     = 3.0
+animation = "fade_out"
+bruitage  = "$win"

@@ -1,0 +1,117 @@
+# ================================
+# CineToml — Reaction video
+# Avec vidéo en arrière-plan
+# et beaucoup d'effets visuels
+# ================================
+
+[meta]
+title      = "Mon chat a commandé 47 croquettes sur Amazon"
+langue     = "fr"
+resolution = "9x16"
+fps        = 30
+watermark  = "@moncompte"
+hook       = "Mon chat a une carte bleue apparemment"
+
+[interface]
+style    = "imessage"
+heure    = "02:47"
+batterie = 8
+signal   = "faible"
+theme    = "sombre"
+
+[audio]
+musique  = "./assets/sons/background.mp3"
+volume   = 0.25
+fade_in  = 0.5
+fade_out = 1.5
+
+[bruitages]
+choc     = "./assets/sons/vine_boom.mp3"
+fail     = "./assets/sons/faaaah.mp3"
+win      = "./assets/sons/tada.mp3"
+malaise  = "./assets/sons/oh_no.mp3"
+suspense = "./assets/sons/ominous.mp3"
+
+[personnages.moi]
+couleur = "#0084FF"
+cote    = "right"
+
+[personnages.maman]
+nom     = "MAMAN"
+couleur = "#3C3C3E"
+cote    = "left"
+
+# ── Titre ────────────────────────────────
+[[scenes]]
+type      = "titre"
+texte     = "Mon chat a une carte bleue 🐱💳"
+duree     = 3.0
+bruitage  = "$suspense"
+animation = "zoom_in"
+
+# ── Accroche ─────────────────────────────
+[[scenes]]
+type        = "sms"
+vitesse     = 90
+fond_video  = "./assets/videos/cat.mp4"
+fond_opacite = 0.35
+messages    = [
+  {perso = "moi",   texte = "Maman t'as vu le relevé Amazon ?"},
+  {perso = "maman", texte = "Non pourquoi ?"},
+  {perso = "moi",   texte = "Il y a 47 commandes de croquettes"},
+  {perso = "maman", texte = "47 ??"},
+  {perso = "moi",   texte = "Et une tour à chat à 300€", bruitage = "$choc"},
+]
+
+# ── Réaction ─────────────────────────────
+[[scenes]]
+type          = "reaction"
+media         = "./assets/images/cat_shocked.jpg"
+duree         = 2.5
+bruitage      = "$fail"
+effet         = "zoom_in"
+texte_overlay = "😱"
+
+# ── Investigation ────────────────────────
+[[scenes]]
+type        = "sms"
+vitesse     = 80
+fond_video  = "./assets/videos/cat.mp4"
+fond_opacite = 0.35
+messages    = [
+  {perso = "maman", texte = "C'est impossible, Minou sait pas utiliser un ordi"},
+  {perso = "moi",   texte = "Les commandes ont été passées à 3h du matin"},
+  {perso = "maman", texte = "..."},
+  {perso = "maman", texte = "C'est l'heure où il se promène sur le clavier"},
+  {perso = "moi",   texte = "Maman il a aussi acheté un robot aspirateur", effet = "shake"},
+]
+
+# ── Double réaction ──────────────────────
+[[scenes]]
+type     = "reaction"
+media    = "./assets/images/shocked2.jpg"
+duree    = 2.0
+bruitage = "$malaise"
+effet    = "shake"
+
+# ── Twist final ──────────────────────────
+[[scenes]]
+type        = "sms"
+vitesse     = 85
+fond_video  = "./assets/videos/cat.mp4"
+fond_opacite = 0.35
+messages    = [
+  {perso = "maman", texte = "Attends le robot aspirateur..."},
+  {perso = "maman", texte = "Il est livré demain"},
+  {perso = "moi",   texte = "Et alors ?"},
+  {perso = "maman", texte = "Minou va enfin nettoyer sa propre litière 😂", bruitage = "$win"},
+  {perso = "moi",   texte = "Il est GÉNIAL ce chat"},
+]
+
+# ── Outro ────────────────────────────────
+[[scenes]]
+type      = "outro"
+texte     = "Minou pour président 🐱👑"
+duree     = 3.0
+animation = "fade_out"
+bruitage  = "$win"

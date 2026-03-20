@@ -1,0 +1,30 @@
+# ── Node.js ─────────────────────────────
+node_modules/
+npm-debug.log*
+.npm
+
+# ── Remotion build ──────────────────────
+remotion-engine/out/
+remotion-engine/.remotion/
+
+# ── CineToml build ──────────────────────
+.cinetoml_build/
+.cinetoml_tts_cache.json
+test_output/
+
+# ── Outputs vidéo ───────────────────────
+examples/output/*.mp4
+output/*.mp4
+
+# ── Python ──────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# ── OS ──────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
