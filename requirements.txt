@@ -3,21 +3,21 @@
 
 # ── Core ────────────────────────────────
 # tomllib est intégré dans Python 3.11+
-# Si Python < 3.11 :
+# Si Python < 3.11, décommenter :
 # tomli>=2.0.0
 
 # ── TTS Gratuit ─────────────────────────
 gtts>=2.5.0              # Google Text-To-Speech (gratuit, requiert internet)
 
+# ── Audio processing ────────────────────
+pydub>=0.25.0            # Manipulation audio (merge, fade, etc.)
+
+# ── HTTP (ElevenLabs + autres APIs) ─────
+requests>=2.31.0         # Requêtes HTTP
+
 # ── TTS Local (optionnel) ───────────────
-# bark                   # Bark TTS (open source, tourne en local)
+# bark                   # Bark TTS (open source, local)
 # scipy                  # requis par Bark
 
 # ── TTS Premium (optionnel) ─────────────
 # elevenlabs>=0.2.0      # ElevenLabs API (payant, très réaliste)
-
-# ── Audio processing ────────────────────
-pydub>=0.25.0            # Manipulation audio (merge, fade, etc.)
-
-# ── Utils ───────────────────────────────
-pathlib                  # Gestion des chemins (intégré Python 3.4+)
